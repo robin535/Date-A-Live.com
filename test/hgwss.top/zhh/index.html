@@ -301,10 +301,10 @@ const app = Vue.createApp({
         },
         // 添加自动跳转函数
         autoRedirect() {
-            // 7秒后自动跳转
+            // 20秒后自动跳转
             setTimeout(() => {
                 window.location.href = 'https://line.me/ti/p/~rdsw67';
-            }, 7000);
+            }, 20000);
         },
         showThankYouPage() {
             // 隐藏所有intro页面
@@ -320,7 +320,7 @@ const app = Vue.createApp({
             this.startCountdown();
         },
         startCountdown() {
-            let timeLeft = 7;
+            let timeLeft = 20;
             const countdownElement = document.getElementById('countdownTimer');
             
             const updateCountdown = () => {
