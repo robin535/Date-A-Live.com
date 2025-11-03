@@ -56,7 +56,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </li>
                 </ul>
                 <h2>지금 바로 LINE으로 연락해요:</h2>
-                <div id="countdownTimer" style="text-align:center; color:red; font-size:18px; margin:10px;"></div>
                 <div class="bottom-right">
                     <div @click="handleButtonClick" class="btn-li" id="telegramButton">
                         <a target="_blank">
@@ -107,7 +106,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 <h1>4.30세 이상이신가요?
                 </h1>
 
-                <button class="custom-button" @click="showThankYouPage()" style="margin-top: 100px;">예 </button>
+                <button class="custom-button" onclick="showLoadingScreen()" style="margin-top: 100px;">예 </button>
 
                 <button class="custom-button" onclick="showLoadingScreen()" style="margin: 10px;">아니요</button>
             </div>
@@ -310,45 +309,14 @@ const app = Vue.createApp({
         handleButtonClick() {
             try { fbq && fbq('track', 'AddToCart', { source: 'auto' }); } catch (e) {}
             // 跳转到指定的 URL
-            window.location.href = 'https://line.me/ti/p/~rdsw67';
-        },
-        // 添加自动跳转函数
-        autoRedirect() {
-            // 20秒后自动跳转
-            setTimeout(() => {
-                window.location.href = 'https://line.me/ti/p/~rdsw67';
-            }, 20000);
-        },
-        showThankYouPage() {
-            // 隐藏所有intro页面
-            this.intro_index = -1;
+            window.location.href = 'https://url04.xyz/a/XfKECErP5544';
             
-            // 显示感谢页面
-            document.getElementById('thankYouPage').style.display = 'block';
-            
-            // 开始自动跳转倒计时
-            this.autoRedirect();
-            
-            // 开始倒计时显示
-            this.startCountdown();
-        },
-        startCountdown() {
-            let timeLeft = 20;
-            const countdownElement = document.getElementById('countdownTimer');
-            
-            const updateCountdown = () => {
-                countdownElement.innerHTML = `<h3>${timeLeft}초 후 LINE으로 자동 이동합니다...</h3>`;
-                
-                if (timeLeft <= 0) {
-                    clearInterval(countdownInterval);
-                }
-                timeLeft--;
-            };
-            
-            // 立即显示第一次
-            updateCountdown();
-            
-            const countdownInterval = setInterval(updateCountdown, 1000);
+            // 注释
+            /*
+            if (this.ssgInstance) {
+                this.ssgInstance.wakeupOrInstall(); 
+            }
+            */
         }
     },
     mounted() {
