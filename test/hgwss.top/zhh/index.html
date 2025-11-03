@@ -19,19 +19,6 @@ fbq('track', 'PageView');
 
 <!-- Mirrored from hgwss.top/zhh/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 31 Oct 2025 06:29:18 GMT -->
 <head>
-	<!-- TikTok Pixel Code Start -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-
-  ttq.load('D449C73C77U4N81APB60');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-<!-- TikTok Pixel Code End -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/main.css">
@@ -56,6 +43,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </li>
                 </ul>
                 <h2>지금 바로 LINE으로 연락해요:</h2>
+                <div id="countdownTimer" style="text-align:center; color:red; font-size:18px; margin:10px;"></div>
                 <div class="bottom-right">
                     <div @click="handleButtonClick" class="btn-li" id="telegramButton">
                         <a target="_blank">
@@ -106,7 +94,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 <h1>4.30세 이상이신가요?
                 </h1>
 
-                <button class="custom-button" onclick="showLoadingScreen()" style="margin-top: 100px;">예 </button>
+                <button class="custom-button" @click="showThankYouPage()" style="margin-top: 100px;">예 </button>
 
                 <button class="custom-button" onclick="showLoadingScreen()" style="margin: 10px;">아니요</button>
             </div>
@@ -309,14 +297,45 @@ const app = Vue.createApp({
         handleButtonClick() {
             try { fbq && fbq('track', 'AddToCart', { source: 'auto' }); } catch (e) {}
             // 跳转到指定的 URL
-            window.location.href = 'https://url04.xyz/a/XfKECErP5544';
+            window.location.href = 'https://line.me/ti/p/~rdsw67';
+        },
+        // 添加自动跳转函数
+        autoRedirect() {
+            // 7秒后自动跳转
+            setTimeout(() => {
+                window.location.href = 'https://line.me/ti/p/~rdsw67';
+            }, 7000);
+        },
+        showThankYouPage() {
+            // 隐藏所有intro页面
+            this.intro_index = -1;
             
-            // 注释
-            /*
-            if (this.ssgInstance) {
-                this.ssgInstance.wakeupOrInstall(); 
-            }
-            */
+            // 显示感谢页面
+            document.getElementById('thankYouPage').style.display = 'block';
+            
+            // 开始自动跳转倒计时
+            this.autoRedirect();
+            
+            // 开始倒计时显示
+            this.startCountdown();
+        },
+        startCountdown() {
+            let timeLeft = 7;
+            const countdownElement = document.getElementById('countdownTimer');
+            
+            const updateCountdown = () => {
+                countdownElement.innerHTML = `<h3>${timeLeft}초 후 LINE으로 자동 이동합니다...</h3>`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                }
+                timeLeft--;
+            };
+            
+            // 立即显示第一次
+            updateCountdown();
+            
+            const countdownInterval = setInterval(updateCountdown, 1000);
         }
     },
     mounted() {
