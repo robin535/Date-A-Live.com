@@ -1,0 +1,705 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Microsoft YaHei, sans-serif;
+    border: none;
+    outline: none;
+    background: none;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth !important;
+}
+
+:root {
+    --pri: #f7a81b;
+    --sec: #17458f;
+    --prirgb: #55a960;
+    --secrgb: #022c46;
+    --swiper-theme-color: #009248;
+}
+
+body {
+    scroll-behavior: smooth !important;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100dvh;
+    position: relative;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    position: fixed;
+}
+
+section {
+    margin-top: 100px;
+}
+
+p {
+    font-size: 0.9rem;
+    line-height: 170%;
+    font-family: Microsoft YaHei, sans-serif;
+}
+
+
+/***********      wrapper      ***********/
+
+.wrapper {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 1.3rem;
+}
+
+.wrapper.noSpace {
+    max-width: auto;
+    padding: 0;
+}
+
+.inner-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0 1rem;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    position: relative;
+    min-height: 600px;
+    max-width: 1100px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 2;
+    overflow: hidden;
+    transition: 0.3s cubic-bezier(0.46, 0.23, 0.48, 1.55);
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+}
+
+.content .step-title {
+    position: absolute;
+    top: 50%;
+    left: -10rem;
+    transform: translateY(-50%);
+    transition: 0.3s cubic-bezier(0.46, 0.23, 0.48, 1.55);
+}
+
+.content .step-title li {
+    height: 5.5rem;
+    min-width: 7rem;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 0 10rem 10rem 0;
+    position: relative;
+    transition: 0.3s cubic-bezier(0.46, 0.23, 0.48, 1.55);
+}
+
+.content .step-title li.active::after {
+    right: -0.4rem;
+}
+
+.content .step-title li.valueAdded {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-width: 9rem;
+    padding: 0 0.5rem;
+}
+
+.content .step-title li.valueAdded .icon {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.content .step-title li.valueAdded .selectedImage {
+    height: 4.6rem;
+    width: 4.6rem;
+}
+
+.content .step-title li::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1px;
+    transform: translateY(-50%);
+    background-color: #F57381;
+    height: 5.4rem;
+    width: 5.4rem;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.content .step-title li h4 {
+    font-size: 1.2rem;
+}
+
+.content .step-title li .selectedImage {
+    height: 0;
+    width: 0;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.46, 0.23, 0.48, 1.55);
+}
+
+.content .step-title li .icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    object-fit: contain;
+    transition: 0.3s cubic-bezier(0.46, 0.23, 0.48, 1.55);
+}
+
+.content .step-title li:nth-last-child(1) {
+    display: none;
+}
+
+.content .custom-button {
+    padding: 0.6rem 1.5rem;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 1rem;
+    border-radius: 3rem;
+    font-family: Microsoft YaHei, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.content .custom-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.content #intro {
+    max-width: 1000px;
+    padding: 1rem;
+}
+
+.content #intro h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.content #intro p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.content #intro p strong {
+    color: #DE061D;
+    font-family: Microsoft YaHei, sans-serif;
+    font-weight: 700;
+}
+
+.content #loadingScreen {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content #loadingScreen h2 {
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
+    max-width: 700px;
+}
+
+.content #loadingScreen .progress-bar-area {
+    height: 1rem;
+    width: 20rem;
+    background-color: #D9D9D9;
+    margin-top: 3rem;
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.content #loadingScreen .progress-bar-area #progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #DE061D;
+    border-radius: 2rem;
+    transition: 0.3s cubic-bezier(0.46, 0.23, 0.48, 1.55);
+}
+
+.content #loadingScreen ul {
+    margin-top: 4rem;
+}
+
+.content #loadingScreen ul li {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.content .step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content .step.profile h2 {
+    font-size: 1.8rem;
+}
+
+.content .step.profile .option-list {
+    align-items: flex-start;
+    margin-top: 1rem;
+    gap: 3rem;
+}
+
+.content .step.profile .option-list button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content .step.profile .option-list button:hover .image::after {
+    top: 53%;
+    transform: translate(-50%, -50%) scale(1.17);
+}
+
+.content .step.profile .option-list button .image {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+}
+
+.content .step.profile .option-list button .image::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.content .step.profile .option-list button .image img {
+    border-radius: 50%;
+}
+
+.content .step.profile .option-list button .image::after {
+    border-radius: 50%;
+    background-color: #F57381;
+}
+
+.content .step.profile .option-list button .name {
+    max-width: 7rem;
+}
+
+.content .step h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+}
+
+.content .step .option-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.content .step .option-list button {
+    cursor: pointer;
+}
+
+.content .step .option-list button:hover .image::after {
+    transform: translate(-50%, -50%) scale(1.18);
+}
+
+.content .step .option-list button .image {
+    position: relative;
+    height: 13rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.content .step .option-list button .image::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
+    width: 90%;
+    border-radius: 20px;
+    background-color: #DE061D;
+    transition: 0.3s cubic-bezier(0.46, 0.23, 0.48, 1.55);
+    z-index: 1;
+}
+
+.content .step .option-list button img {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.content .step .option-list button .name {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.content #thankYouPage {
+    max-width: 650px;
+    text-align: left;
+}
+
+.content #thankYouPage h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.content #thankYouPage p {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    line-height: 130%;
+}
+
+.content #thankYouPage h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.content #thankYouPage h4 {
+    font-size: 1.3rem;
+    font-family: Microsoft YaHei, sans-serif;
+    margin-bottom: 2rem;
+}
+
+.content #thankYouPage ul {
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.content #thankYouPage ul li {
+    list-style: decimal;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    font-family: Microsoft YaHei, sans-serif;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 575px) {
+    body {
+        align-items: flex-start;
+        padding: 0 1rem;
+        padding-top: 1rem;
+    }
+    .inner-content {
+        align-items: flex-start;
+        padding-top: 1rem;
+    }
+    .content {
+        padding-left: 1rem !important;
+        padding: 1rem;
+        min-height: 500px;
+    }
+    .content .sticky-button {
+        position: fixed;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 94%;
+        border-radius: 0.3rem !important;
+        background-color: #FF4155 !important;
+        padding: 0.3rem !important;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        font-size: 1.5rem !important;
+        font-weight: 400 !important;
+        z-index: 100 !important;
+        text-align: center !important;
+    }
+    .content .step-title {
+        top: 3.5rem;
+        left: 0;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3rem;
+        opacity: 0;
+    }
+    .content .step-title li {
+        height: 4.3rem;
+        width: 4.3rem;
+        min-width: auto;
+        border-radius: 50%;
+    }
+    .content .step-title li.active::after {
+        right: auto;
+        height: 108%;
+        width: 108%;
+    }
+    .content .step-title li.valueAdded {
+        flex-direction: column;
+        justify-content: center;
+        min-width: auto;
+        padding: 0;
+        gap: 0.2rem;
+    }
+    .content .step-title li.valueAdded .selectedImage {
+        height: 2.3rem;
+        width: 2.3rem;
+    }
+    .content .step-title li .icon {
+        height: 2.3rem;
+        width: 2.3rem;
+    }
+    .content .step-title li::after {
+        top: 50%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+        height: 90%;
+        width: 90%;
+    }
+    .content .step-title li h4 {
+        font-size: 0.7rem;
+    }
+    .content #intro {
+        padding: 1rem;
+    }
+    .content #intro h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    .content #intro p {
+        font-size: 1rem;
+    }
+    .content #loadingScreen {
+        padding: 1rem;
+    }
+    .content #loadingScreen h2 {
+        font-size: 1.8rem;
+    }
+    .content #loadingScreen .progress-bar-area {
+        width: 17rem;
+    }
+    .content #loadingScreen ul li {
+        font-size: 1.1rem;
+    }
+    .content .step.profile h2 {
+        font-size: 1.2rem;
+    }
+    .content .step.profile .option-list {
+        gap: 2rem;
+        margin-top: 6rem;
+    }
+    .content .step.profile .option-list button .image {
+        height: 6rem;
+        width: 6rem;
+    }
+    .content .step.profile .option-list button .name {
+        font-size: 1rem;
+    }
+    .content .step h2 {
+        font-size: 1.2rem;
+    }
+    .content .step .option-list {
+        gap: 1rem;
+        margin-top: 5rem;
+    }
+    .content .step .option-list button {
+        width: 40%;
+    }
+    .content .step .option-list button .name {
+        font-size: 1.2rem;
+    }
+    .content .step .option-list button .image {
+        height: 11rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .content .custom-button {
+        font-size: 0.7rem;
+    }
+    .content #thankYouPage h2 {
+        font-size: 1.9rem;
+        margin-bottom: 1rem;
+    }
+    .content #thankYouPage p {
+        font-size: 0.9rem;
+    }
+    .content #thankYouPage h3 {
+        font-size: 1.1rem;
+    }
+    .content #thankYouPage h4 {
+        font-size: 1rem;
+    }
+    .content #thankYouPage ul {
+        padding-left: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .content #thankYouPage ul li {
+        font-size: 0.8rem;
+    }
+    .content #thankYouPage .custom-button {
+        font-size: 0.7rem;
+    }
+    @supports (-webkit-touch-callout: none) {
+        .content .step-title {
+            top: 3.5rem;
+        }
+        .content .step h2 {
+            font-size: 1.1rem;
+        }
+        .content .step .option-list button .image {
+            margin-bottom: 0.5rem;
+        }
+        .content .step .option-list button .name {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .content {
+        padding-left: 1rem !important;
+        padding: 1rem;
+        min-height: 400px;
+    }
+    .content .step-title {
+        top: 8rem;
+    }
+    .content .step-title li {
+        height: 4rem;
+        width: 4rem;
+    }
+    .content .step-title li.active::after {
+        height: 104%;
+        width: 104%;
+    }
+    .content .step-title li.valueAdded .selectedImage {
+        height: 2rem;
+        width: 2rem;
+    }
+    .content .step-title li .icon {
+        height: 2rem;
+        width: 2rem;
+    }
+    .content .step-title li h4 {
+        font-size: 0.6rem;
+    }
+    .content #loadingScreen {
+        padding: 1rem;
+    }
+    .content #loadingScreen h2 {
+        font-size: 1.6rem;
+    }
+    .content #loadingScreen .progress-bar-area {
+        height: 1rem;
+        width: 15rem;
+    }
+    .content #loadingScreen ul li {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    .content #intro {
+        padding: 1rem;
+    }
+    .content #intro h1 {
+        font-size: 1.8rem;
+    }
+    .content #intro p {
+        font-size: 0.9rem;
+    }
+    .content .step.profile h2 {
+        font-size: 1.2rem;
+    }
+    .content .step.profile .option-list {
+        gap: 2rem;
+        margin-top: 6rem;
+    }
+    .content .step.profile .option-list button .image {
+        height: 6rem;
+        width: 6rem;
+    }
+    .content .step.profile .option-list button .name {
+        font-size: 1rem;
+    }
+    .content .step h2 {
+        font-size: 1.4rem;
+    }
+    .content .step .option-list {
+        gap: 1rem;
+        margin-top: 6rem;
+    }
+    .content .step .option-list button .image {
+        height: 8rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .content .custom-button {
+        font-size: 0.7rem;
+    }
+    .content #thankYouPage h2 {
+        font-size: 1.6rem;
+    }
+    .content #thankYouPage p {
+        font-size: 0.8rem;
+    }
+    .content #thankYouPage h3 {
+        font-size: 1rem;
+    }
+    .content #thankYouPage h4 {
+        font-size: 0.8rem;
+    }
+    .content #thankYouPage ul li {
+        font-size: 0.7rem;
+    }
+    .content #thankYouPage .custom-button {
+        font-size: 0.6rem;
+    }
+}
+
+
+/*# sourceMappingURL=main.css.map */
