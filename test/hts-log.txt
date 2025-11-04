@@ -1,0 +1,15 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 31 Oct 2025 14:28:55 at https://hgwss.top/zhh/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://hgwss.top/zhh/ -O1 "C:\My Web Sites\test" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+14:29:43	Warning: 	Retry after error -4 (Connect Error) at link https://connect.facebook.net/en_US/fbevents.js (from https://hgwss.top/zhh/)
+14:29:43	Error: 	"Bad Request" (400) at link https://hgwss.top/cdn-cgi/zaraz/s.js?z= (from https://hgwss.top/zhh/)
+14:30:04	Warning: 	Retry after error -4 (Connect Error) at link https://connect.facebook.net/en_US/fbevents.js (from https://hgwss.top/zhh/)
+14:30:25	Error: 	"Connect Error" (-4) after 2 retries at link https://connect.facebook.net/en_US/fbevents.js (from https://hgwss.top/zhh/)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 30 seconds : 34 links scanned, 29 files written (4579283 bytes overall) [4036205 bytes received at 44846 bytes/sec], 2301664 bytes transferred using HTTP compression in 9 files, ratio 75%, 2.3 requests per connection
+(2 errors, 2 warnings, 0 messages)

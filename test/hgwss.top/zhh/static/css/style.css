@@ -1,0 +1,157 @@
+﻿/* Add v-cloak to prevent flash of unstyled content */
+        [v-cloak] {
+            display: none !important;
+        }
+        .bottom-right {
+            /* position: fixed; */
+            /* bottom: 90px; */
+            width: 100%;
+            /* 距离底部 10px */
+            /* 距离右侧 10px */
+            display: flex;
+            /* flex-direction: column; */
+            /* 让按钮水平居中 */
+            justify-content: center;
+            /* 让按钮垂直排列 */
+            gap: 30px;
+            /* 按钮间距 */
+        }
+
+        .bottom-right img {
+            width: 200px;
+            /* 图标宽度，可根据需要调整 */
+            height: 50px;
+            /* 图标高度 */
+            /* 控制按钮大小 */
+            height: auto;
+        }
+
+        body {
+            scroll-behavior: smooth !important;
+            background-position: center top;
+            background-size: auto;
+            /* height: 1000dvh; */
+            position: relative;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed;
+            overflow: hidden;
+            background-repeat: repeat-y;
+            animation: scrollBackground 55s linear infinite;
+            /* 根据图片长度调整时间 */
+        }
+
+        @keyframes scrollBackground {
+            from {
+                background-position-y: 0;
+            }
+
+            to {
+                background-position-y: 100%;
+                /* 根据图片的实际高度调整 */
+            }
+        }
+
+        /* 针对安卓设备的字体大小优化 */
+        @media only screen and (max-width: 768px) {
+            .content #intro h1 {
+                font-size: 1.8rem !important;
+                line-height: 1.2 !important;
+            }
+            .content #intro h2 {
+                font-size: 1.4rem !important;
+                line-height: 1.3 !important;
+            }
+            .content #intro p {
+                font-size: 1rem !important;
+                line-height: 1.4 !important;
+            }
+            .content .step h2 {
+                font-size: 1.3rem !important;
+                line-height: 1.2 !important;
+            }
+            .content .custom-button {
+                font-size: 0.9rem !important;
+                padding: 0.8rem 1.2rem !important;
+                min-height: 44px !important;
+                min-width: 120px !important;
+            }
+        }
+
+        /* 针对更大的安卓手机屏幕 */
+        @media only screen and (min-width: 576px) and (max-width: 768px) {
+            .content #intro h1 {
+                font-size: 2rem !important;
+            }
+            .content #intro h2 {
+                font-size: 1.5rem !important;
+            }
+            .content .step h2 {
+                font-size: 1.4rem !important;
+            }
+            .content .custom-button {
+                font-size: 1rem !important;
+                padding: 0.9rem 1.5rem !important;
+            }
+        }
+
+        /* 针对小屏幕安卓设备的特别优化 */
+        @media only screen and (max-width: 480px) {
+            .content #intro h1 {
+                font-size: 1.6rem !important;
+                margin-bottom: 1rem !important;
+            }
+            .content #intro h2 {
+                font-size: 1.2rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+            .content #intro p {
+                font-size: 0.9rem !important;
+            }
+            .content .step h2 {
+                font-size: 1.1rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .content .custom-button {
+                font-size: 0.8rem !important;
+                padding: 0.7rem 1rem !important;
+                margin: 0.5rem !important;
+                width: auto !important;
+                min-width: 100px !important;
+            }
+        }
+
+        /* 针对超小屏幕的优化 */
+        @media only screen and (max-width: 360px) {
+            .content #intro h1 {
+                font-size: 1.4rem !important;
+            }
+            .content #intro h2 {
+                font-size: 1.1rem !important;
+            }
+            .content #intro p {
+                font-size: 0.85rem !important;
+            }
+            .content .step h2 {
+                font-size: 1rem !important;
+            }
+            .content .custom-button {
+                font-size: 0.75rem !important;
+                padding: 0.6rem 0.8rem !important;
+            }
+        }
+
+        /* 确保按钮在所有设备上都可点击 */
+        @media (hover: none) and (pointer: coarse) {
+            .content .custom-button {
+                min-height: 48px !important;
+                min-width: 120px !important;
+                touch-action: manipulation !important;
+            }
+            .content .step .option-list button {
+                min-height: 48px !important;
+                touch-action: manipulation !important;
+            }
+        }
